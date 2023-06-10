@@ -1,0 +1,2 @@
+class IntroductionJunre < ApplicationRecord
+end

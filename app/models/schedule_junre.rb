@@ -1,0 +1,2 @@
+class ScheduleJunre < ApplicationRecord
+end
