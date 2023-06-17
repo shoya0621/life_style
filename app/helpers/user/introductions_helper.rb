@@ -1,0 +1,2 @@
+module User::IntroductionsHelper
+end
