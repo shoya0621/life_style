@@ -1,2 +1,16 @@
 マイページ
+<%= @user_sign_in.name %>
+<p>仕事・趣味・最近興味のあること</p>
+<div>
+  <%= form_with model: @user, url: user_path(params[:id]), local: true do |f| %>
+   <%= f.fields_for :introductions do |ff| %>
+    <%= render 'introduction_fields', f: ff %>
+   <% end %>
+   <%= link_to_add_association '明細を追加', f, :introductions %>
+  <% end %>
+
+  
+</div>
+
+
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
