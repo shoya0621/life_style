@@ -1,0 +1,20 @@
+<div>
+ <% @introductions.each do |introduction| %>
+  <%= form_with model: [@user, @introduction], url: user_introduction_path(id: introduction.id), method: :patch do |f| %>
+   <%= f.collection_select(:introduction_junre_id, IntroductionJunre.all,:id, :name, selected: introduction.introduction_junre_id) %>
+   <%= f.text_area :content,value: introduction.content %>
+   <%= f.submit "更新" %>
+  <% end %>
+  <%= link_to "削除する",  user_introduction_path(id: introduction.id), method: :delete %>
+ <% end %>
+</div>
+
+<div>
+ <%= form_with model: [@user, @introduction],url: user_introductions_path, method: :post do |f| %>
+  <%= f.collection_select(:introduction_junre_id, IntroductionJunre.all,:id, :name) %>
+  <%= f.text_area :content %>
+  <%= f.submit '追加' %>
+ <% end %>
+</div>
+
+<%= link_to "マイページ", user_path(params[:user_id]) %>

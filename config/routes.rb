@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   scope module: :user do
     root to: 'homes#top'
 
-    resources :users, only: [:show, :edit] do
+    resources :users, only: [:show, :create] do
      resources :farorites, only: [:create, :destroy]
+     resources :introductions, only: [:create, :index, :update, :destroy]
     end
    
     resources :schedules, only: [:create, :update, :destroy]
-    resources :introdutions, only: [:create, :index, :update, :destroy]
+    
    
     #コメント機能は追加で
     post 'users/sender_id/comments', to: 'comments#send'

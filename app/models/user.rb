@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :introductions, dependent: :destroy
-  accepts_nested_attributes_for :introductions, allow_destroy: true
+ 
 end
